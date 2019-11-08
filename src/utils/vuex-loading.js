@@ -6,6 +6,8 @@
 
 // 相关文档 https://vuex.vuejs.org/zh/api/#subscribeaction
 const NAMESPACE = "@@LOADING";
+const SHOW = "@@LOADING/SHOW";
+const HIDE = "@@LOADING/HIDE";
 
 const createLoadingPlugin = ({
   namespace = NAMESPACE,
@@ -46,21 +48,21 @@ const createLoadingPlugin = ({
     store.subscribeAction({
       before: action => {
         console.log(`before action ${action.type}`);
-        if (shouldEffect(action, includes, excludes)) {
-          store.commit({ type: namespace + "/SHOW", payload: action.type });
+        if (onEffect(action, includes, excludes)) {
+          store.commit({ type: SHOW, payload: action.type });
         }
       },
       after: action => {
         console.log(`after action ${action.type}`);
-        if (shouldEffect(action, includes, excludes)) {
-          store.commit({ type: namespace + "/HIDE", payload: action.type });
+        if (onEffect(action, includes, excludes)) {
+          store.commit({ type: HIDE, payload: action.type });
         }
       }
     });
   };
 };
 
-function shouldEffect({ type }, includes, excludes) {
+function onEffect({ type }, includes, excludes) {
   if (includes.length === 0 && excludes.length === 0) {
     return true;
   }

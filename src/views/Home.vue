@@ -1,28 +1,37 @@
 <template>
   <div class="home">
-    <van-button type="default">默认按钮</van-button>
-    <van-button type="primary">主要按钮</van-button>
-    <van-button type="info">信息按钮</van-button>
-    <van-button type="warning">警告按钮</van-button>
-    <van-button type="danger">危险按钮</van-button>
-    <van-address-edit
-      :area-list="areaList"
-      show-postal
-      show-delete
-      show-set-default
-      show-search-result
-      :search-result="searchResult"
-      :area-columns-placeholder="['请选择', '请选择', '请选择']"
-      @save="onSave"
-      @delete="onDelete"
-      @change-detail="onChangeDetail"
-    />
+    <van-button @click="add" :loading="loading" type="default">{{
+      $store.state.user.count
+    }}</van-button>
+    <van-button :loading="loading" type="primary">主要按钮</van-button>
+    <van-button :loading="loading" type="info">信息按钮</van-button>
+    <van-button :loading="loading" type="warning">警告按钮</van-button>
+    <van-button :loading="loading" type="danger">危险按钮</van-button>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "home",
-  components: {}
+  components: {},
+  computed: {
+    ...mapState({
+      loading: state => state["@@LOADING"].effects["user/addAction"]
+    })
+  },
+  methods: {
+    add() {
+      this.$store.dispatch({
+        type: "user/addAction"
+      });
+    }
+  }
 };
 </script>
+
+<style>
+.icon {
+  font-size: 20px;
+}
+</style>

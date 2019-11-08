@@ -9,6 +9,9 @@ import defaultSettings from "./setting";
 import * as filters from "./filters"; // global filters
 const { NODE_ENV } = process.env;
 
+import "@/icons";
+import SvgIcon from "@/components/SvgIcon"; // 引入svgIcon组件
+
 // 注册全局过滤器
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key]);
@@ -22,6 +25,9 @@ if (NODE_ENV === "development" && defaultSettings.showVconsole) {
   // eslint-disable-next-line
   const v_console = new VConsole();
 }
+
+// 注册svgIcon组件
+Vue.component("svg-icon", SvgIcon);
 
 Vue.config.productionTip = false;
 

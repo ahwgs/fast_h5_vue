@@ -2,6 +2,9 @@ export default {
   namespaced: true,
   state: {},
   mutations: {},
-  actions: {},
+  actions: {
+    resetToken() {},
+    logout() {}
+  },
   getters: {}
 };

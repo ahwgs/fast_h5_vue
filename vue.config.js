@@ -38,15 +38,7 @@ const externals = {
 
 // 别名配置
 const alias = {
-  "@": resolve("src"), // 主目录
-  "@views": resolve("src/views"), // 页面
-  "@components": resolve("src/components"), // 组件
-  "@services": resolve("src/services"), // 接口文件
-  "@utils": resolve("src/utils"), // 通用功能
-  "@assets": resolve("src/assets"), // 静态资源
-  "@constant": resolve("src/constant"), // 常量
-  "@router": resolve("src/router"), // 路由
-  "@store": resolve("src/store") // vuex
+  "@": resolve("src") // 主目录
 };
 
 // 本地服务

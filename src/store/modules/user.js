@@ -1,10 +1,16 @@
+import { logout, resetToken } from "@/services/user";
+
 export default {
   namespaced: true,
   state: {},
   mutations: {},
   actions: {
-    resetToken() {},
-    logout() {}
+    resetToken() {
+      resetToken();
+    },
+    logout() {
+      logout();
+    }
   },
   getters: {}
 };

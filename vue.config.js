@@ -44,7 +44,9 @@ const alias = {
   "@services": resolve("src/services"), // 接口文件
   "@utils": resolve("src/utils"), // 通用功能
   "@assets": resolve("src/assets"), // 静态资源
-  "@constant": resolve("src/constant") // 常量
+  "@constant": resolve("src/constant"), // 常量
+  "@router": resolve("src/router"), // 路由
+  "@store": resolve("src/store") // vuex
 };
 
 // 本地服务
@@ -82,20 +84,20 @@ module.exports = {
   chainWebpack(config) {
     config.plugins.delete("preload");
     config.plugins.delete("prefetch");
+    config.plugin("html").tap(args => {
+      args[0].title = title; // 应用的名字
+      return args;
+    });
     if (!IS_DEV) {
       if (ANALYZE === "true") {
         config.plugin("analyzer").use(BundleAnalyzerPlugin);
       }
       config.plugin("html").tap(args => {
-        args[0].title = title; // 应用的名字
         args[0].cdn = cdnMap;
-        return args;
-      });
-      config.externals(externals);
-      config.plugin("html").tap(args => {
         args[0].minify.minifyCSS = true; // 压缩html中的css
         return args;
       });
+      config.externals(externals);
       // 开启gzip 但是Nginx上也要做配置
       config
         .plugin("compression")

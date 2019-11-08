@@ -15,7 +15,9 @@ module.exports = {
       "@services": resolve("src/services"), // 接口文件
       "@utils": resolve("src/utils"), // 通用功能
       "@assets": resolve("src/assets"), // 静态资源
-      "@constant": resolve("src/constant") // 常量
+      "@constant": resolve("src/constant"), // 常量
+      "@router": resolve("src/router"), // 路由
+      "@store": resolve("src/store") // vuex
     }
   }
 };

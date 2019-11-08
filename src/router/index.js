@@ -4,7 +4,7 @@ import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
 
-const routes = [
+let routes = [
   {
     path: "/",
     name: "home",
@@ -13,13 +13,29 @@ const routes = [
   {
     path: "/about",
     name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue")
   }
 ];
+
+/**
+ * 路由自动导入
+ */
+const routerContext = require.context("./", true, /\.js$/);
+routerContext.keys().forEach(route => {
+  // 如果是根目录的 index.js 、不处理
+  if (route.startsWith("./index")) {
+    return;
+  }
+  const routerModule = routerContext(route);
+  routes = routes.concat(routerModule.default || routerModule);
+});
+
+// 最后插入404 page
+routes = routes.concat({
+  path: "*",
+  redirect: "/404"
+});
 
 const router = new VueRouter({
   mode: "history",

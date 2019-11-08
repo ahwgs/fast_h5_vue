@@ -1,29 +1,23 @@
 # vue-h5
 
-## Project setup
-```
-npm install
-```
+vue+vuex+vant+vue-router+vue-cli3+axios 搭建h5模板
 
-### Compiles and hot-reloads for development
-```
+- 开发
+```$xslt
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
+- 打包
+```$xslt
 npm run build
 ```
 
-### Run your tests
-```
-npm run test
+- 分析打包
+```$xslt
+npm run analyze
 ```
 
-### Lints and fixes files
-```
+- 代码lint
+```$xslt
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

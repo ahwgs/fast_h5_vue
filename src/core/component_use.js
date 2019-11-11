@@ -4,15 +4,12 @@
  * @date 2019/11/8
  */
 
-// 需要引入vant的组件在这里添加
+// 需要全局vant的组件在这里添加
 import Vue from "vue";
 
-import { Button, Cell, Icon, Image, Lazyload, Popup, AddressEdit } from "vant";
+import { Toast, Dialog, Notify, ImagePreview } from "vant";
 
-Vue.use(Button);
-Vue.use(Cell);
-Vue.use(Icon);
-Vue.use(Image);
-Vue.use(Lazyload);
-Vue.use(Popup);
-Vue.use(AddressEdit);
+Vue.prototype.$toast = Toast;
+Vue.prototype.$dialog = Dialog;
+Vue.prototype.$notify = Notify;
+Vue.prototype.$imagePreview = ImagePreview;

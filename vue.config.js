@@ -188,7 +188,14 @@ module.exports = {
     }
   },
   css: {
+    // 是否使用css分离插件 ExtractTextPlugin
+    extract: !IS_DEV,
     modules: false,
-    sourceMap: IS_DEV
+    sourceMap: IS_DEV,
+    loaderOptions: {
+      less: {
+        data: '@import "~/assets/common/common.less";' // 全局引入
+      }
+    }
   }
 };

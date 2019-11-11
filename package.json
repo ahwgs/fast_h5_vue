@@ -13,6 +13,7 @@
     "core-js": "^3.3.2",
     "fastclick": "^1.0.6",
     "lib-flexible": "^0.3.2",
+    "nprogress": "^0.2.0",
     "register-service-worker": "^1.6.2",
     "vant": "^2.2.12",
     "vue": "^2.6.10",

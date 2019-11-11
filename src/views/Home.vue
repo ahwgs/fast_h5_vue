@@ -12,6 +12,9 @@
     <svg-icon icon-class="ali-pay" class="icon" />
     <svg-icon icon-class="user" class="icon" />
     <svg-icon icon-class="404" class="icon" />
+    <h3>路由测试</h3>
+    <router-link class="link" to="/about">about</router-link>
+    <router-link class="link" to="/">home</router-link>
   </div>
 </template>
 
@@ -62,5 +65,8 @@ export default {
 }
 h3 {
   margin: 20px 0;
+}
+.link {
+  font-size: 20px;
 }
 </style>

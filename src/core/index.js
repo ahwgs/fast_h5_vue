@@ -12,6 +12,7 @@ const { NODE_ENV } = process.env;
 import "@/core/component_use";
 import "@/icons";
 import SvgIcon from "@/components/SvgIcon"; // 引入svgIcon组件
+import "@/assets/less/common.less";
 
 // 注册svgIcon组件
 Vue.component("svg-icon", SvgIcon);

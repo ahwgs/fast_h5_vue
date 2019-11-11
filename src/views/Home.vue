@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <h3>测试按钮</h3>
     <van-button @click="add" :loading="loading" type="default"
       >{{ $store.state.user.count }}
     </van-button>
@@ -7,6 +8,10 @@
     <van-button @click="showDialog" type="info">Dialog</van-button>
     <van-button @click="showNotify" type="warning">Notify</van-button>
     <van-button @click="showImagePreview" type="danger">图片预览</van-button>
+    <h3>测试SVG Icon</h3>
+    <svg-icon icon-class="ali-pay" class="icon" />
+    <svg-icon icon-class="user" class="icon" />
+    <svg-icon icon-class="404" class="icon" />
   </div>
 </template>
 
@@ -53,6 +58,9 @@ export default {
 
 <style>
 .icon {
-  font-size: 20px;
+  font-size: 30px;
+}
+h3 {
+  margin: 20px 0;
 }
 </style>

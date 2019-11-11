@@ -193,9 +193,7 @@ module.exports = {
     modules: false,
     sourceMap: IS_DEV,
     loaderOptions: {
-      less: {
-        data: '@import "~/assets/common/common.less";' // 全局引入
-      }
+      less: {}
     }
   }
 };

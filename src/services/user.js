@@ -13,3 +13,10 @@ export const resetToken = () => {
     method: "get"
   });
 };
+
+export const getUserInfo = () => {
+  return request({
+    url: "/user/getInfo",
+    method: "get"
+  });
+};

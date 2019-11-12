@@ -14,11 +14,13 @@ let routes = [
       {
         path: "/home",
         name: "home",
+        meta: { title: "首页" },
         component: () => import("@/views/home/Home")
       },
       {
         path: "/about",
         name: "about",
+        meta: { title: "关于" },
         component: () => import("@/views/about/About")
       }
     ]
@@ -31,6 +33,7 @@ let routes = [
       {
         path: "login",
         name: "login",
+        meta: { title: "登录" },
         component: () => import("@/views/login/Login")
       }
     ]

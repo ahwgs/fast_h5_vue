@@ -14,6 +14,8 @@ import "@/icons";
 import SvgIcon from "@/components/SvgIcon"; // 引入svgIcon组件
 import "@/assets/less/common.less";
 
+import "@/utils/permission"; // 权限校验
+
 // 注册svgIcon组件
 Vue.component("svg-icon", SvgIcon);
 
@@ -27,6 +29,7 @@ FastClick.attach(document.body);
 
 if (NODE_ENV === "development" && defaultSettings.showVconsole) {
   const VConsole = require("vconsole");
+  console.log("我执行了");
   // eslint-disable-next-line
   const v_console = new VConsole();
 }

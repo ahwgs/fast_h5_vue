@@ -66,7 +66,7 @@ module.exports = {
   outputDir, // 打包的文件夹名
   assetsDir: "static",
   lintOnSave: IS_DEV,
-  productionSourceMap: !IS_DEV,
+  productionSourceMap: IS_DEV,
   devServer,
   configureWebpack: {
     name: title,
@@ -139,7 +139,7 @@ module.exports = {
         new UglifyjsWebpackPlugin({
           // 生产环境推荐关闭 sourcemap 防止源码泄漏
           // 服务端通过前端发送的行列，根据 sourcemap 转为源文件位置
-          sourceMap: !IS_DEV,
+          sourceMap: IS_DEV,
           uglifyOptions: {
             warnings: false,
             compress: {
@@ -183,8 +183,6 @@ module.exports = {
           }
         }
       });
-
-      config.optimization.runtimeChunk("single");
     }
   },
   css: {

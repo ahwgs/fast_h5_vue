@@ -1,7 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import { UserLayout } from "@/layouts";
+import { BasicLayout, UserLayout } from "@/layouts";
 
 Vue.use(VueRouter);
 
@@ -9,7 +8,15 @@ let routes = [
   {
     path: "/",
     name: "home",
-    component: Home
+    redirect: "/home",
+    component: BasicLayout,
+    children: [
+      {
+        path: "/home",
+        name: "home",
+        component: () => import("@/views/home/Home")
+      }
+    ]
   },
   {
     path: "/user",
@@ -31,5 +38,4 @@ const router = new VueRouter({
   routes,
   scrollBehavior: () => ({ y: 0 })
 });
-
 export default router;

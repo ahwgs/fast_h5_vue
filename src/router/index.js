@@ -15,6 +15,11 @@ let routes = [
         path: "/home",
         name: "home",
         component: () => import("@/views/home/Home")
+      },
+      {
+        path: "/about",
+        name: "about",
+        component: () => import("@/views/about/About")
       }
     ]
   },
@@ -29,6 +34,10 @@ let routes = [
         component: () => import("@/views/login/Login")
       }
     ]
+  },
+  {
+    path: "*",
+    component: () => import("@/views/exception/404")
   }
 ];
 

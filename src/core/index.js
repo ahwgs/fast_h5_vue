@@ -5,7 +5,6 @@
  */
 import Vue from "vue";
 import FastClick from "fastclick";
-import "../registerServiceWorker";
 import defaultSettings from "../setting";
 import * as filters from "@/filters"; // global filters
 const { NODE_ENV } = process.env;

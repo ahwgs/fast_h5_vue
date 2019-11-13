@@ -62,7 +62,7 @@ const devServer = {
 };
 
 module.exports = {
-  publicPath: IS_DEV ? "./" : cdnUrl, // 打包后静态资源地址
+  publicPath: IS_DEV ? "/" : cdnUrl, // 打包后静态资源地址
   outputDir, // 打包的文件夹名
   assetsDir: "static",
   lintOnSave: IS_DEV,

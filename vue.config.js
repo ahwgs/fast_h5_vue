@@ -58,7 +58,8 @@ const devServer = {
         ["^" + VUE_APP_BASE_API]: ""
       }
     }
-  }
+  },
+  after: require("./mock/mock-server.js")
 };
 
 module.exports = {

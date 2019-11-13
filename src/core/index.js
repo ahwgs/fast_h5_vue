@@ -15,6 +15,12 @@ import "@/assets/less/common.less";
 
 import "@/utils/permission"; // 权限校验
 
+import { mockXHR } from "../../mock";
+
+if (NODE_ENV !== "production") {
+  mockXHR();
+}
+
 // 注册svgIcon组件
 Vue.component("svg-icon", SvgIcon);
 

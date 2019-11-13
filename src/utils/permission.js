@@ -24,6 +24,7 @@ const whiteList = ["login", "register"]; // 路由白名单
 const defaultPath = "/";
 
 router.beforeEach(async (to, from, next) => {
+  if (topProgress) NProgress.start(); // start progress bar
   // 设置页面标题
   setDocumentTitle(to.meta);
   // determine whether the user has logged in
@@ -32,6 +33,7 @@ router.beforeEach(async (to, from, next) => {
     if (to.path === "/user/login") {
       // 已经登录，跳转到首页
       next({ path: defaultPath });
+      if (topProgress) NProgress.done();
     } else {
       // 获取用户信息
       const hasGetUserInfo =

@@ -1,0 +1,22 @@
+|─public          //
+└─src
+    ├─assets      // 静态资源
+    │  └─less     // less文件
+    ├─components  // 组件
+    │  └─SvgIcon
+    ├─constant    // 常量文件
+    ├─core        // 核心加载
+    ├─filters     // 全局过滤器
+    ├─icons       // icons图标
+    │  └─svg
+    ├─layouts     // 布局
+    ├─router      // 路由
+    ├─services    // 接口层
+    ├─store       // 全局store
+    │  └─modules
+    ├─utils       // 工具
+    └─views       // 页面
+        ├─about
+        ├─exception
+        ├─home
+        └─login

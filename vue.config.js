@@ -19,6 +19,14 @@ function resolve(dir) {
     return path.join(__dirname, dir)
 }
 
+function addStyleResource(rule) {
+    rule.use('style-resource')
+        .loader('style-resources-loader')
+        .options({
+            patterns: [path.resolve(__dirname, './src/assets/less/theme.less')]
+        })
+}
+
 const cdnMap = {
     css: [],
     js: [
@@ -84,6 +92,12 @@ module.exports = {
         config.plugins.delete('preload')
         config.plugins.delete('prefetch')
 
+        // 全局注入theme.less
+        const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+        types.forEach(type =>
+            addStyleResource(config.module.rule('less').oneOf(type))
+        )
+
         // set svg-sprite-loader
         config.module
             .rule('svg')
@@ -114,7 +128,7 @@ module.exports = {
 
         config
             // https://webpack.js.org/configuration/devtool/#development
-            .when(IS_DEV, config => config.devtool('cheap-source-map'))
+            .when(!IS_DEV, config => config.devtool('cheap-source-map'))
 
         config.plugin('html').tap(args => {
             args[0].title = title // 应用的名字
@@ -196,9 +210,6 @@ module.exports = {
         // 是否使用css分离插件 ExtractTextPlugin
         extract: !IS_DEV,
         modules: false,
-        sourceMap: IS_DEV,
-        loaderOptions: {
-            less: {}
-        }
+        sourceMap: IS_DEV
     }
 }

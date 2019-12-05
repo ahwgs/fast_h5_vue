@@ -1,0 +1,51 @@
+.ellipsis() {
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+//多行超出省略号
+.ellipsisLine(@line : 2) {
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @line;
+  overflow: hidden;
+}
+
+/*渐变(从上到下）*/
+.linear-gradient(@direction:bottom, @color1:transparent, @color2:#306eff, @color3:transparent) {
+  //background: -webkit-linear-gradient($direction,$colorTop, $colorCenter, $colorBottom); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(@direction, @color1, @color2, @color3);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(@direction, @color1, @color2, @color3);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(to @direction, @color1, @color2, @color3);
+}
+
+// 居中
+.center(@width:null,@height:null) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  & when (@width = null) and (@height= null){
+    transform: translate(-50%, -50%);
+  }
+  & when not(@width = null) and not(@height = null){
+    width: @width;
+    height: @height;
+    margin: -(@height / 2) 0 0 -(@width / 2);
+  }
+  & when not (@width = null) and (@height = null){
+    width: @width;
+    margin-left: -(@width / 2);
+    transform: translateY(-50%);
+  }
+  & when (@width = null) and not(@height=null){
+    height: @height;
+    margin-top: -(@height / 2);
+    transform: translateX(-50%);
+  }
+}

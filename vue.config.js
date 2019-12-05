@@ -23,7 +23,10 @@ function addStyleResource(rule) {
     rule.use('style-resource')
         .loader('style-resources-loader')
         .options({
-            patterns: [path.resolve(__dirname, './src/assets/less/theme.less')]
+            patterns: [
+                resolve('./src/assets/less/theme.less'),
+                resolve('./src/assets/less/mixin.less')
+            ]
         })
 }
 

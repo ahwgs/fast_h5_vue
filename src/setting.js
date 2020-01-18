@@ -4,5 +4,6 @@ module.exports = {
     cdnUrl: '', // cdn地址
     outputDir: 'FastH5', // 打包输出文件夹名称
     pageTrans: true, // 页面切换是否需要转场动画
-    topProgress: true
+    topProgress: true,
+    appId: '' // 微信appid
 }

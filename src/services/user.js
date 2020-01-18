@@ -20,3 +20,12 @@ export const getUserInfo = () => {
         method: 'get'
     })
 }
+
+// 获取微信授权
+export const getWxJSDKCode = params => {
+    return request({
+        url: '/user/getWxCode',
+        method: 'GET',
+        params
+    })
+}

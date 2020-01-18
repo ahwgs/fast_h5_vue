@@ -1,22 +1,20 @@
-|©¤public          //
-©¸©¤src
-    ©À©¤assets      // ¾²Ì¬×ÊÔ´
-    ©¦  ©¸©¤less     // lessÎÄ¼þ
-    ©À©¤components  // ×é¼þ
-    ©¦  ©¸©¤SvgIcon
-    ©À©¤constant    // ³£Á¿ÎÄ¼þ
-    ©À©¤core        // ºËÐÄ¼ÓÔØ
-    ©À©¤filters     // È«¾Ö¹ýÂËÆ÷
-    ©À©¤icons       // iconsÍ¼±ê
-    ©¦  ©¸©¤svg
-    ©À©¤layouts     // ²¼¾Ö
-    ©À©¤router      // Â·ÓÉ
-    ©À©¤services    // ½Ó¿Ú²ã
-    ©À©¤store       // È«¾Östore
-    ©¦  ©¸©¤modules
-    ©À©¤utils       // ¹¤¾ß
-    ©¸©¤views       // Ò³Ãæ
-        ©À©¤about
-        ©À©¤exception
-        ©À©¤home
-        ©¸©¤login
+â”œâ”€assets
+â”‚  â””â”€less
+â”œâ”€components
+â”‚  â””â”€SvgIcon
+â”œâ”€constant
+â”œâ”€core
+â”œâ”€filters
+â”œâ”€icons
+â”‚  â””â”€svg
+â”œâ”€layouts
+â”œâ”€router
+â”œâ”€services
+â”œâ”€store
+â”‚  â””â”€modules
+â”œâ”€utils
+â””â”€views
+    â”œâ”€about
+    â”œâ”€exception
+    â”œâ”€home
+    â””â”€login

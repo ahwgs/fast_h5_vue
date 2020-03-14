@@ -392,3 +392,45 @@ await initWxJSDK([
     'chooseWXPay'
 ])
 ```
+
+### 新增移动端中 input bug
+
+在移动端中，使用`input`会出现键盘弹起页面被顶飞的`bug`，具体可看这篇文章[移动端 H5 input 输入完成后页面底部留白问题](https://www.ahwgs.cn/h5-input-white-footer.html)
+
+在`App.vue`中作全局处理
+
+```javascript
+created() {
+        this.handleFocusOut()
+        this.handleResize()
+    },
+    methods: {
+        handleFocusOut() {
+            document.addEventListener('focusout', () => {
+                document.body.scrollTop = 0
+            })
+        },
+        handleResize() {
+            const clientHeight = document.documentElement.clientHeight
+            const resizeHandler = () => {
+                const tagName = document.activeElement.tagName
+                if (tagName) {
+                    const inputBox =
+                        tagName === 'INPUT' || tagName === 'TEXTAREA'
+                    if (inputBox) {
+                        setTimeout(() => {
+                            document.activeElement.scrollIntoView()
+                        }, 0)
+                    }
+                }
+                const bodyHeight = document.documentElement.clientHeight
+                const ele = document.getElementById('fixed-bottom')
+                if (ele) {
+                    if (clientHeight > bodyHeight) ele.style.display = 'none'
+                    else ele.style.display = 'block'
+                }
+            }
+            window.addEventListener('resize', resizeHandler)
+        }
+    }
+```

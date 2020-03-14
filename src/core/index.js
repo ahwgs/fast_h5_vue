@@ -19,7 +19,7 @@ import '@/utils/permission' // 权限校验
 import { mockXHR } from '../../mock'
 
 if (NODE_ENV !== 'production') {
-    mockXHR()
+  mockXHR()
 }
 
 // 注册svgIcon组件
@@ -27,15 +27,15 @@ Vue.component('svg-icon', SvgIcon)
 
 // 注册全局过滤器
 Object.keys(filters).forEach(key => {
-    Vue.filter(key, filters[key])
+  Vue.filter(key, filters[key])
 })
 
 // 解决移动端点击300ms延时
 FastClick.attach(document.body)
 
 if (NODE_ENV === 'development' && defaultSettings.showVconsole) {
-    const VConsole = require('vconsole')
-    console.log('我执行了')
-    // eslint-disable-next-line
-  const v_console = new VConsole();
+  const VConsole = require('vconsole')
+  console.log('我执行了')
+  // eslint-disable-next-line
+    const v_console = new VConsole()
 }

@@ -3,13 +3,13 @@
 </template>
 
 <script>
-import RouteView from "./RouteView";
+import RouteView from './RouteView'
 export default {
-  name: "BasicLayout",
+  name: 'BasicLayout',
   components: {
     RouteView
   }
-};
+}
 </script>
 
 <style scoped></style>

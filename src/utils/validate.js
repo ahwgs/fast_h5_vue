@@ -9,5 +9,5 @@
  * @returns {boolean}
  */
 export const isExternal = path => {
-    return /^(https?:|mailto:|tel:)/.test(path)
+  return /^(https?:|mailto:|tel:)/.test(path)
 }

@@ -1,7 +1,7 @@
 <script>
-import defaultSetting from "../setting";
+import defaultSetting from '../setting'
 export default {
-  name: "RouteView",
+  name: 'RouteView',
   props: {
     keepAlive: {
       type: Boolean,
@@ -13,36 +13,36 @@ export default {
     }
   },
   data() {
-    return {};
+    return {}
   },
   render() {
-    const { pageTrans } = defaultSetting;
+    const { pageTrans } = defaultSetting
     const {
       $route: { meta }
-    } = this;
+    } = this
 
     const inKeep =
-      pageTrans || this.pageTrans ? (
-        <transition>
-          <keep-alive>
-            <router-view />
-          </keep-alive>
-        </transition>
-      ) : (
-        <keep-alive>
-          <router-view />
-        </keep-alive>
-      );
+            pageTrans || this.pageTrans ? (
+              <transition>
+                <keep-alive>
+                  <router-view />
+                </keep-alive>
+              </transition>
+            ) : (
+              <keep-alive>
+                <router-view />
+              </keep-alive>
+            )
     const notKeep =
-      pageTrans || this.pageTrans ? (
-        <transition>
-          <router-view />
-        </transition>
-      ) : (
-        <router-view />
-      );
+            pageTrans || this.pageTrans ? (
+              <transition>
+                <router-view />
+              </transition>
+            ) : (
+              <router-view />
+            )
 
-    return this.keepAlive || meta.keepAlive ? inKeep : notKeep;
+    return this.keepAlive || meta.keepAlive ? inKeep : notKeep
   }
-};
+}
 </script>

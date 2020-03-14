@@ -1,15 +1,15 @@
 <template>
-    <div class="main">
-        <h2>login page</h2>
-    </div>
+  <div class="main">
+    <h2>login page</h2>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'Login',
-    data() {
-        return {}
-    }
+  name: 'Login',
+  data() {
+    return {}
+  }
 }
 </script>
 

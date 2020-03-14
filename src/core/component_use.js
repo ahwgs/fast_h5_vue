@@ -8,7 +8,7 @@
 import Vue from 'vue'
 
 // eslint-disable-next-line prettier/prettier
-import { Toast, Dialog, Notify, ImagePreview } from "vant";
+import { Toast, Dialog, Notify, ImagePreview } from 'vant'
 
 Vue.prototype.$toast = Toast
 Vue.prototype.$dialog = Dialog

@@ -462,3 +462,29 @@ const responseLog = response => {
     }
 }
 ```
+
+### 使用 plop 自动新建项目文件
+
+使用[plop](https://www.npmjs.com/package/plop)插件实现
+
+具体查看`plopfile.js`
+
+```javascript
+const viewGenerator = require('./plop-templates/view/prompt')
+const componentGenerator = require('./plop-templates/component/prompt')
+const storeGenerator = require('./plop-templates/store/prompt.js')
+
+module.exports = function(plop) {
+    plop.setGenerator('view', viewGenerator)
+    plop.setGenerator('component', componentGenerator)
+    plop.setGenerator('store', storeGenerator)
+}
+```
+
+控制台中输入
+
+```bash
+yarn new
+```
+
+然后按照提示安装新的项目文件

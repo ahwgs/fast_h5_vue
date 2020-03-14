@@ -28,6 +28,12 @@ npm run analyze
 npm run lint
 ```
 
+-   自动生成文件
+
+```$xslt
+npm run new
+```
+
 ## 目录结构
 
 具体参见`tree.txt`

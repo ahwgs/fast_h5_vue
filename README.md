@@ -434,3 +434,31 @@ created() {
         }
     }
 ```
+
+### 优化接口响应
+
+```javascript
+const responseLog = response => {
+    if (process.env.NODE_ENV === 'development') {
+        const randomColor = `rgba(${Math.round(
+            Math.random() * 255
+        )},${Math.round(Math.random() * 255)},${Math.round(
+            Math.random() * 255
+        )})`
+        console.log(
+            '%c┍------------------------------------------------------------------┑',
+            `color:${randomColor};`
+        )
+        console.log('| 请求地址：', response.config.url)
+        console.log(
+            '| 请求参数：',
+            response.config.data ? JSON.parse(response.config.data) : {}
+        )
+        console.log('| 返回数据：', response.data)
+        console.log(
+            '%c┕------------------------------------------------------------------┙',
+            `color:${randomColor};`
+        )
+    }
+}
+```

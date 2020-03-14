@@ -9,6 +9,30 @@ const service = axios.create({
     timeout: 5000 // request timeout
 })
 
+const responseLog = response => {
+    if (process.env.NODE_ENV === 'development') {
+        const randomColor = `rgba(${Math.round(
+            Math.random() * 255
+        )},${Math.round(Math.random() * 255)},${Math.round(
+            Math.random() * 255
+        )})`
+        console.log(
+            '%c┍------------------------------------------------------------------┑',
+            `color:${randomColor};`
+        )
+        console.log('| 请求地址：', response.config.url)
+        console.log(
+            '| 请求参数：',
+            response.config.data ? JSON.parse(response.config.data) : {}
+        )
+        console.log('| 返回数据：', response.data)
+        console.log(
+            '%c┕------------------------------------------------------------------┙',
+            `color:${randomColor};`
+        )
+    }
+}
+
 // request interceptor
 service.interceptors.request.use(
     config => {
@@ -25,6 +49,7 @@ service.interceptors.request.use(
 
 service.interceptors.response.use(
     response => {
+        responseLog(response)
         const res = response.data
 
         if (res.code !== HTTP_RESP_CODE.SUCCESS) {

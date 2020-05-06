@@ -22,7 +22,7 @@ export default {
     },
     logout() {
       logout()
-      sessionStorage.clear()
+      localStorage.clear()
     },
     addAction({ commit }, { val }) {
       return new Promise(resolve => {

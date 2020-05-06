@@ -3,21 +3,22 @@ import request from '@/utils/request'
 export const logout = () => {
   return request({
     url: '/user/logout',
-    method: 'post'
+    method: 'POST'
   })
 }
 
 export const resetToken = () => {
   return request({
     url: '/user/resetToken',
-    method: 'get'
+    method: 'GET'
   })
 }
 
 export const getUserInfo = () => {
+  console.log('getUserInfo')
   return request({
     url: '/user/getInfo',
-    method: 'get'
+    method: 'GET'
   })
 }
 

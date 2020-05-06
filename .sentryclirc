@@ -1,0 +1,7 @@
+[defaults]
+url=https://sentry.io
+org=osdoc
+project=fasth5
+
+[auth]
+token=d5344f19e67749608a43092582d637707792c2197d9e4d94b428669da75812e6

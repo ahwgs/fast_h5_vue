@@ -17,9 +17,32 @@ import '@/assets/less/common.less' // 引入公共样式
 import '@/utils/permission' // 权限校验
 
 import { mockXHR } from '../../mock'
+import Report from '../utils/report'
 
-if (NODE_ENV !== 'production') {
+const IS_DEV = NODE_ENV !== 'production'
+const { enableMock, showVconsole, enableSentry, SentryDSN } = defaultSettings
+if (IS_DEV && enableMock) {
   mockXHR()
+}
+
+if (IS_DEV && enableSentry) {
+  const sentry = Report.getInstance(Vue, {
+    dsn: SentryDSN,
+    release: __VERSION__, // from webpack DefinePlugin
+    environment: NODE_ENV
+  })
+
+  window.$sentry = sentry
+
+  // 全局监控 Vue errorHandler
+  Vue.config.errorHandler = (error, vm, info) => {
+    window.$sentry.log({
+      error,
+      type: 'vue errorHandler',
+      vm,
+      info
+    })
+  }
 }
 
 // 注册svgIcon组件
@@ -33,9 +56,9 @@ Object.keys(filters).forEach(key => {
 // 解决移动端点击300ms延时
 FastClick.attach(document.body)
 
-if (NODE_ENV === 'development' && defaultSettings.showVconsole) {
+if (IS_DEV && showVconsole) {
   const VConsole = require('vconsole')
-  console.log('我执行了')
+  console.log('vconsole install success')
   // eslint-disable-next-line
     const v_console = new VConsole()
 }

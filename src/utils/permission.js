@@ -37,7 +37,7 @@ router.beforeEach(async(to, from, next) => {
     } else {
       // 获取用户信息
       const hasGetUserInfo =
-                store.getters.getUser && store.getters.userData.name
+                store.getters.userData && store.getters.userData.name
       if (hasGetUserInfo) {
         next()
       } else {

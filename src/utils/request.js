@@ -9,6 +9,25 @@ const service = axios.create({
   timeout: 5000 // request timeout
 })
 
+const errorReport = error => {
+  console.log('errorReport', error)
+  const { config, data } = error
+  const { url } = config
+  if (window.$sentry) {
+    const errorInfo = {
+      error: typeof error === 'string' ? new Error(error) : error,
+      type: 'request',
+      requestUrl: url,
+      requestOptions: JSON.stringify(config)
+    }
+    if (data) {
+      errorInfo.response = JSON.stringify(data)
+    }
+
+    window.$sentry.log && window.$sentry.log(errorInfo)
+  }
+}
+
 const responseLog = response => {
   if (process.env.NODE_ENV === 'development') {
     const randomColor = `rgba(${Math.round(
@@ -79,12 +98,14 @@ service.interceptors.response.use(
             store.dispatch('user/logout').then(() => {})
           })
       }
+      errorReport(response)
       return Promise.reject(new Error(res.message || 'Error'))
     } else {
       return res
     }
   },
   error => {
+    errorReport(error)
     console.log('err' + error) // for debug
     Toast.fail(error.message || '请求出错')
     return Promise.reject(error)

@@ -26,6 +26,7 @@
         "weixin-js-sdk": "^1.4.0-test"
     },
     "devDependencies": {
+        "@sentry/webpack-plugin": "^1.11.1",
         "@vue/cli-plugin-babel": "^4.0.0",
         "@vue/cli-plugin-eslint": "^4.0.0",
         "@vue/cli-service": "^4.0.0",
